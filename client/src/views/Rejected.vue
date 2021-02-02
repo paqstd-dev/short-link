@@ -8,3 +8,12 @@
         <router-link :to="{ name: 'Index' }" class="btn">Back to home</router-link>
     </div>
 </template>
+
+<script>
+export default {
+    name: 'Rejected',
+    metaInfo: {
+      title: 'Rejected'
+    },
+}
+</script>

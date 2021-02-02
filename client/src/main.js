@@ -19,6 +19,12 @@ Vue.use(Vuelidate)
 import VueClipboard from 'vue-clipboard2'
 Vue.use(VueClipboard)
 
+// meta info for pages
+import VueMeta from 'vue-meta'
+Vue.use(VueMeta, {
+  refreshOnceOnNavigation: true
+})
+
 new Vue({
   router,
   store,

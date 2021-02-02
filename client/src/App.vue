@@ -27,3 +27,13 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'App',
+  metaInfo: {
+    title: 'Simple service',
+    titleTemplate: '%s | ShortLink',
+  }
+}
+</script>

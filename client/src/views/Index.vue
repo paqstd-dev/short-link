@@ -69,9 +69,7 @@
 </template>
 
 <script>
-  import {
-    required
-  } from 'vuelidate/lib/validators'
+  import { required } from 'vuelidate/lib/validators'
 
   const validURL = (str) => {
     let pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
@@ -85,6 +83,9 @@
 
   export default {
     name: 'Index',
+    metaInfo: {
+      title: 'Main page'
+    },
     data() {
       return {
         input: '',
