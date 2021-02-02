@@ -1,13 +1,14 @@
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '43q6r*&u(67-ctdfxc^(tj#h_^^58n7ymma1m8w3iyqat3@#vi'
+SECRET_KEY = os.getenv('SERVER_SECRET_KEY', 'SecretKEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('SERVER_DEBUG', False)
 
 ALLOWED_HOSTS = ['*']
 
@@ -54,7 +55,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'server.wsgi.application'
 
-
 # Database
 DATABASES = {
     'default': {
@@ -62,7 +62,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -80,16 +79,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 CORS_ORIGIN_ALLOW_ALL = True

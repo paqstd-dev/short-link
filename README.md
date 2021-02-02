@@ -10,6 +10,7 @@ To use the short link, just follow it!
 To start using the service, you need to make a couple of commands:       
 
 > git clone ...
+> cp .env.dist .env
 > make deploy
 > make migrate
 

@@ -1,0 +1,2 @@
+# hide env vars for commits
+.env
