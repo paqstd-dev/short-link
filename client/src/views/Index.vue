@@ -101,9 +101,6 @@
       this.recentLinks = JSON.parse(localStorage.getItem('recentLinks') ?? '[]')
     },
     methods: {
-      copyLink: function () {
-
-      },
       clearRecent: function () {
         this.recentLinks = []
         localStorage.setItem('recentLinks', '[]')

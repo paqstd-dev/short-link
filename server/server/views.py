@@ -27,7 +27,8 @@ class GoToShortLink(View):
     def get(self, request, hash):
         try:
             shortLink = ShortLink.objects.get(hash=hash)
+            origin = shortLink.origin if shortLink.origin.startswith('http://') or shortLink.origin.startswith('https://') else f'http://{ shortLink.origin }'
 
-            return redirect(shortLink.origin)
+            return redirect(origin)
         except:
             return redirect('/rejected/')
