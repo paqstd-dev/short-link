@@ -9,9 +9,9 @@ To use the short link, just follow it!
 ## Deploy
 To start using the service, you need to make a couple of commands:       
 
-> git clone ...
-> cp .env.dist .env
-> make deploy
-> make migrate
+> git clone ...  
+> cp .env.dist .env  
+> make deploy  
+> make migrate  
 
 It is build client, build server and make migrations for db.
