@@ -13,6 +13,11 @@ const routes = [
     path: '/rejected',
     name: 'Rejected',
     component: () => import('@/views/Rejected')
+  },
+  {
+    path: '*',
+    name: '404',
+    component: () => import('@/views/404')
   }
 ]
 
