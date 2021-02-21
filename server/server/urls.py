@@ -1,10 +1,12 @@
-from django.contrib import admin
+# import core
 from django.urls import path, re_path, include
 
+# import project
 from .views import GenerateShortLink, GoToShortLink
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('generate/', GenerateShortLink.as_view()),
-    path('go/<str:hash>/', GoToShortLink.as_view())
+    path('go/', include([
+        path('generate/', GenerateShortLink.as_view()),
+        path('<str:hash>/', GoToShortLink.as_view())
+    ]))
 ]

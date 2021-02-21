@@ -8,7 +8,7 @@ Vue.config.productionTip = false
 // axios http requests
 import axios from 'axios'
 Vue.prototype.$axios = axios.create({
-  baseURL: `${ document.location.protocol }//${ document.location.hostname }/`
+  baseURL: `${ document.location.protocol }//${ document.location.hostname }/go/`
 })
 
 // validate form data

@@ -8,6 +8,11 @@
       </p>
     </div>
 
+    <div class="alert alert-danger" v-if="rejected">
+      <strong>Your request is rejected!</strong>
+      <p class="mb-0">Try again! If the problem persists, we recommend refreshing the page or waiting for a while ...</p>
+    </div>
+
     <div class="card mb-3">
       <div class="card-body">
         <div class="row align-items-center">
@@ -89,6 +94,7 @@
     data() {
       return {
         input: '',
+        rejected: false,
         recentLinks: []
       }
     },
@@ -108,10 +114,11 @@
       },
       generateShortLink: function () {
         // request to fastapi
-        this.$axios.post('generate/', {
-          origin: this.input
-        }).then(response => {
-          if (!response.data.success) return
+        this.$axios.post('generate/', { origin: this.input }).then(response => {
+          if (!response.data.success) {
+            this.rejected = true
+            return
+          }
 
           // save result for recentLinks
           this.recentLinks.unshift({
@@ -120,9 +127,10 @@
           })
 
           this.input = ''
+          this.rejected = false
 
           localStorage.setItem('recentLinks', JSON.stringify(this.recentLinks))
-        })
+        }).catch(() => this.rejected = true)
       }
     }
   }
