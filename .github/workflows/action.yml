@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Building client
+        run: cd client && npm run install && npm run build
+
+      - name: Start Docker containers
+        run: |
+          docker-compose build
+          docker-compose up
+      
+      - name: Check Docker state
